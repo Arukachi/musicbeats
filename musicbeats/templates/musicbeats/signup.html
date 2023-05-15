@@ -1,0 +1,56 @@
+{%extends 'musicbeats/base.html'%}
+{% block title%}SignUp{% endblock %}
+
+{% block body %}
+
+{% if message %}
+<script>
+    Swal.fire({
+        position: 'center',
+        icon: 'warning',
+        title: '{{message}}',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    </script>
+{% endif %}
+
+
+<div class="container my-4">
+    <form method="POST" action="/signup">{% csrf_token %}
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Email address</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="email">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Username</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="username">
+          </div>
+        
+          <div class="form-group">
+            <label for="exampleFormControlInput1">First Name</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="firstname">
+          </div>
+
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Last Name</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="lastname">
+          </div>
+
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Password</label>
+            <input type="password" class="form-control" id="exampleFormControlInput1" name="pass1">
+          </div>
+        
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Password (again)</label>
+            <input type="password" class="form-control" id="exampleFormControlInput1" name="pass2">
+          </div>
+          <div style="padding-top: 2%;">
+          <button type="submit" class="btn btn-primary">SignUp</button>
+        </div>
+      </form>
+    </div>
+
+{% endblock %}
